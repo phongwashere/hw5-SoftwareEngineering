@@ -17,6 +17,11 @@ response = requests.get(
 )
 
 movies = response.json()
+movie = movies['results']
 
-for movie in movies:
-    print(movie)
+def get_title(movies):
+        return movies['title']
+
+titles = map(get_title, movie)
+
+print('Titles:\n', list(titles)[0:10])
